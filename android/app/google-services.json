@@ -1,0 +1,90 @@
+{
+  "project_info": {
+    "project_number": "428336244677",
+    "project_id": "shopify-1ac61",
+    "storage_bucket": "shopify-1ac61.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:428336244677:android:094c94373564824a07cdac",
+        "android_client_info": {
+          "package_name": "com.example.shopify"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "428336244677-jb3adfpv6cp8hpcud55mqql5nj1prhp1.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.shopify",
+            "certificate_hash": "f5d808937f9022fc8d61acdf7395dcf4d02112a6"
+          }
+        },
+        {
+          "client_id": "428336244677-7mf0ircdi0p55l2r7m14nrvdn0esgb5e.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCsG3R4ZKrJ65w1RfcoeDh6AB5yBmhsRcE"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "428336244677-7mf0ircdi0p55l2r7m14nrvdn0esgb5e.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "428336244677-ft8ok2mqg9vgq2frciesvk1e2lal40uc.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.example.shopify"
+              }
+            }
+          ]
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:428336244677:android:705b028beb0c9acc07cdac",
+        "android_client_info": {
+          "package_name": "com.example.shopify_admin"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "428336244677-7mf0ircdi0p55l2r7m14nrvdn0esgb5e.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCsG3R4ZKrJ65w1RfcoeDh6AB5yBmhsRcE"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "428336244677-7mf0ircdi0p55l2r7m14nrvdn0esgb5e.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "428336244677-ft8ok2mqg9vgq2frciesvk1e2lal40uc.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.example.shopify"
+              }
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
