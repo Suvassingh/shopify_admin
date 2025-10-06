@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:get/get_core/src/get_main.dart';
 import 'package:get/get_navigation/src/extension_navigation.dart';
 import 'package:google_sign_in/google_sign_in.dart';
+import 'package:shopify_admin/screens/all_order_screen.dart';
 import 'package:shopify_admin/utils/constant.dart';
 
 import '../screens/all_user_screen.dart';
@@ -99,6 +100,9 @@ class _CustomDrawerWidgetState extends State<CustomDrawerWidget> {
             Padding(
               padding: const EdgeInsets.symmetric(horizontal: 20),
               child: ListTile(
+                onTap: () {
+                  Get.to(() => AllOrdersScreen());
+                },
                 titleAlignment: ListTileTitleAlignment.center,
                 title: Text(
                   "Orders",
@@ -112,10 +116,7 @@ class _CustomDrawerWidgetState extends State<CustomDrawerWidget> {
                   Icons.arrow_forward,
                   color: AppConstant.appTextColor,
                 ),
-                onTap: () {
-                  // Get.back();
-                  // Get.to(() => AllOrdersScreen());
-                },
+               
               ),
             ),
             Padding(
