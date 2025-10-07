@@ -3,6 +3,7 @@ import 'package:get/get.dart';
 import 'package:shopify_admin/models/product_model.dart';
 import 'package:shopify_admin/utils/constant.dart';
 
+// ignore: must_be_immutable
 class ProductDetailsScreen extends StatefulWidget {
    ProductModel productModel;
    ProductDetailsScreen({super.key, required this.productModel});

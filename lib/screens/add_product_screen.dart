@@ -3,6 +3,7 @@ import 'dart:io';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:shopify_admin/controllers/category_dropdown_controller.dart';
+import 'package:shopify_admin/controllers/is_sale_controller.dart';
 import 'package:shopify_admin/controllers/product_image_controller.dart';
 import 'package:shopify_admin/utils/constant.dart';
 import 'package:shopify_admin/widgets/dropdown_categories_widget.dart';
@@ -16,6 +17,15 @@ class AddProductScreen extends StatelessWidget {
     CategoryDropDownController categoryDropdownController = Get.put(
     CategoryDropDownController(),
   );
+  IsSaleController isSaleController = Get.put(
+    IsSaleController(),
+  );
+  TextEditingController productNameController  = TextEditingController();
+  TextEditingController salePriceController = TextEditingController();
+  TextEditingController fullPriceController  = TextEditingController();
+  TextEditingController deliveryTimeController = TextEditingController();
+  TextEditingController productDescriptionController = TextEditingController();
+
 
   @override
   Widget build(BuildContext context) {
@@ -108,7 +118,134 @@ class AddProductScreen extends StatelessWidget {
                     : SizedBox.shrink();
               },
             ),
-            DropDownCategoriesWiidget()                                  
+            DropDownCategoriesWiidget(),
+            GetBuilder<IsSaleController>(
+              init:IsSaleController(),
+              builder: (isSaleController){
+                return Card(
+                  child:Padding(padding: 
+                  EdgeInsets.all(8),
+                  child: Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                    children: [
+                    Text("isSale"),
+                    Switch(
+                      value: isSaleController.isSale.value, 
+                    activeColor:AppConstant.appMainColor,
+                    onChanged: (value){
+                      isSaleController.toggleIsSale(value);
+                    },
+                    )
+                  ],),
+                  ),
+                );
+              },
+            ),
+          // form
+     SizedBox(height: 10.0),
+            Container(
+              height: 65,
+              margin: EdgeInsets.symmetric(horizontal: 10.0),
+              child: TextFormField(
+                cursorColor: AppConstant.appMainColor,
+                textInputAction: TextInputAction.next,
+                controller: productNameController,
+                decoration: InputDecoration(
+                  contentPadding: EdgeInsets.symmetric(horizontal: 10.0),
+                  hintText: "Product Name",
+                  hintStyle: TextStyle(fontSize: 12.0),
+                  border: OutlineInputBorder(
+                    borderRadius: BorderRadius.all(Radius.circular(10.0)),
+                  ),
+                ),
+              ),
+            ),
+            SizedBox(height: 10.0),
+
+            Obx(() {
+              return isSaleController.isSale.value
+                  ? Container(
+                      height: 65,
+                      margin: EdgeInsets.symmetric(horizontal: 10.0),
+                      child: TextFormField(
+                        cursorColor: AppConstant.appMainColor,
+                        textInputAction: TextInputAction.next,
+                        controller: salePriceController,
+                        decoration: InputDecoration(
+                          contentPadding: EdgeInsets.symmetric(
+                            horizontal: 10.0,
+                          ),
+                          hintText: "Sale Price",
+                          hintStyle: TextStyle(fontSize: 12.0),
+                          border: OutlineInputBorder(
+                            borderRadius: BorderRadius.all(
+                              Radius.circular(10.0),
+                            ),
+                          ),
+                        ),
+                      ),
+                    )
+                  : SizedBox.shrink();
+            }),
+
+            SizedBox(height: 10.0),
+            Container(
+              height: 65,
+              margin: EdgeInsets.symmetric(horizontal: 10.0),
+              child: TextFormField(
+                cursorColor: AppConstant.appMainColor,
+                textInputAction: TextInputAction.next,
+                controller: fullPriceController,
+                decoration: InputDecoration(
+                  contentPadding: EdgeInsets.symmetric(horizontal: 10.0),
+                  hintText: "Full Price",
+                  hintStyle: TextStyle(fontSize: 12.0),
+                  border: OutlineInputBorder(
+                    borderRadius: BorderRadius.all(Radius.circular(10.0)),
+                  ),
+                ),
+              ),
+            ),
+
+            SizedBox(height: 10.0),
+            Container(
+              height: 65,
+              margin: EdgeInsets.symmetric(horizontal: 10.0),
+              child: TextFormField(
+                cursorColor: AppConstant.appMainColor,
+                textInputAction: TextInputAction.next,
+                controller: deliveryTimeController,
+                decoration: InputDecoration(
+                  contentPadding: EdgeInsets.symmetric(horizontal: 10.0),
+                  hintText: "Delivery Time",
+                  hintStyle: TextStyle(fontSize: 12.0),
+                  border: OutlineInputBorder(
+                    borderRadius: BorderRadius.all(Radius.circular(10.0)),
+                  ),
+                ),
+              ),
+            ),
+
+            SizedBox(height: 10.0),
+            Container(
+              height: 65,
+              margin: EdgeInsets.symmetric(horizontal: 10.0),
+              child: TextFormField(
+                cursorColor: AppConstant.appMainColor,
+                textInputAction: TextInputAction.next,
+                controller: productDescriptionController,
+                decoration: InputDecoration(
+                  contentPadding: EdgeInsets.symmetric(horizontal: 10.0),
+                  hintText: "Product Desc",
+                  hintStyle: TextStyle(fontSize: 12.0),
+                  border: OutlineInputBorder(
+                    borderRadius: BorderRadius.all(Radius.circular(10.0)),
+                  ),
+                ),
+              ),
+            ),
+
+          
           ],
         ),
       ),
