@@ -1,6 +1,5 @@
 // // ignore_for_file: must_be_immutable, file_names, prefer_const_literals_to_create_immutables, prefer_const_constructors, prefer_interpolation_to_compose_strings
 
-
 // import 'package:flutter/material.dart';
 // import 'package:shopify_admin/utils/constant.dart';
 
@@ -75,8 +74,6 @@
 //     );
 //   }
 // }
-
-
 
 // ignore_for_file: must_be_immutable, file_names, prefer_const_literals_to_create_immutables, prefer_const_constructors, prefer_interpolation_to_compose_strings
 
