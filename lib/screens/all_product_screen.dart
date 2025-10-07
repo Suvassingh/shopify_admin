@@ -6,6 +6,7 @@ import 'package:get/get.dart';
 import 'package:shopify_admin/controllers/get_all_user_length_controller.dart';
 import 'package:shopify_admin/models/product_model.dart';
 import 'package:shopify_admin/models/user_model.dart';
+import 'package:shopify_admin/screens/add_product_screen.dart';
 import 'package:shopify_admin/screens/product_details_screen.dart';
 import 'package:shopify_admin/utils/constant.dart';
 
@@ -22,10 +23,21 @@ class _AllProductScreenState extends State<AllProductScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text("All-Products"),
+        title: Text("All-Products",style: TextStyle(color: AppConstant.appTextColor,fontWeight: FontWeight.bold),),
         backgroundColor: AppConstant.appMainColor,
         iconTheme: IconThemeData(color: AppConstant.appTextColor),
         centerTitle: true,
+        actions: [
+          GestureDetector(
+            onTap: (){
+              Get.to(()=>AddProductScreen());
+            },
+            child: Padding(
+              padding: const EdgeInsets.all(8.0),
+              child: Icon(Icons.add),
+            ),
+          )
+        ],
       ),
       body: FutureBuilder(
         future: FirebaseFirestore.instance

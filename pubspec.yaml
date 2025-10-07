@@ -55,6 +55,12 @@ dependencies:
   flutter_swipe_action_cell: ^3.1.6
   url_launcher: ^6.3.2
   flutter_rating_bar: ^4.0.1
+  image_picker: ^1.0.2
+  device_info_plus: ^9.1.2
+  intl: ^0.18.1
+  permission_handler: ^11.3.1
+  app_settings: ^5.0.0
+  firebase_storage: ^12.4.10
 
 dev_dependencies:
   flutter_test:
