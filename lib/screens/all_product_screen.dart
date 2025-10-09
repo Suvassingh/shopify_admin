@@ -3,8 +3,11 @@ import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:shopify_admin/controllers/category_dropdown_controller.dart';
+import 'package:shopify_admin/controllers/is_sale_controller.dart';
 import 'package:shopify_admin/models/product_model.dart';
 import 'package:shopify_admin/screens/add_product_screen.dart';
+import 'package:shopify_admin/screens/edit_product_screen.dart';
 import 'package:shopify_admin/screens/product_details_screen.dart';
 import 'package:shopify_admin/utils/constant.dart';
 
@@ -97,7 +100,17 @@ class _AllProductScreenState extends State<AllProductScreen> {
                     ),
                     title: Text(productModel.productName),
                     subtitle: Text(productModel.fullPrice),
-                    trailing: Icon(Icons.arrow_forward),
+                    trailing: GestureDetector(
+                      onTap: (){
+                        final editProductCategory = Get.put(CategoryDropDownController());
+                        final isSaleOldValue = Get.put(
+                          IsSaleController(),
+                        );
+                        editProductCategory.setOldValue(productModel.categoryId);
+                        isSaleOldValue.setIsSaleOldValue(productModel.isSale);
+                        Get.to(()=>EditProductScreen(productModel:productModel));
+                      },
+                      child: Icon(Icons.edit)),
                   ),
                 );
               },
