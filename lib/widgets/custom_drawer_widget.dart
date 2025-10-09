@@ -5,6 +5,7 @@ import 'package:get/get_navigation/src/extension_navigation.dart';
 import 'package:google_sign_in/google_sign_in.dart';
 import 'package:shopify_admin/screens/all_order_screen.dart';
 import 'package:shopify_admin/screens/all_product_screen.dart';
+import 'package:shopify_admin/screens/categories_screen.dart';
 import 'package:shopify_admin/utils/constant.dart';
 
 import '../screens/all_user_screen.dart';
@@ -159,6 +160,9 @@ class _CustomDrawerWidgetState extends State<CustomDrawerWidget> {
             Padding(
               padding: const EdgeInsets.symmetric(horizontal: 20),
               child: ListTile(
+                onTap: (){
+                  Get.to(()=>CategoriesScreen());
+                },
                 titleAlignment: ListTileTitleAlignment.center,
                 title: Text(
                   "Categories",
