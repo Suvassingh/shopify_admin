@@ -11,4 +11,15 @@ class GenerateIdsService {
     formatedProductId = 'shopify-${uuid.substring(0, 5)}';
     return formatedProductId;
   }
+
+  String generateCategoryId() {
+    String formatedCategoryId;
+    String uuid = const Uuid().v4();
+
+    //customize id
+    formatedCategoryId = "easy-shopping-${uuid.substring(0, 5)}";
+
+    //return
+    return formatedCategoryId;
+  }
 }
