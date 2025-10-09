@@ -8,11 +8,13 @@ import 'package:image_picker/image_picker.dart';
 import 'package:permission_handler/permission_handler.dart';
 import 'package:shopify_admin/utils/constant.dart';
 
+
 class AddProductImagesController extends GetxController {
   final ImagePicker _picker = ImagePicker();
 
   RxList<XFile> selectedImages = <XFile>[].obs;
   final RxList<String> arrImageUrl = <String>[].obs;
+  
   final FirebaseStorage storageRef = FirebaseStorage.instance;
 
   Future<void> showImagePickerDialog() async {
@@ -118,4 +120,14 @@ class AddProductImagesController extends GetxController {
 
     return await reference.ref.getDownloadURL();
   }
+  
+void clearImages() {
+    selectedImages.clear();
+    arrImageUrl.clear();
+    update();
+  }
+
+
+
+  
 }
