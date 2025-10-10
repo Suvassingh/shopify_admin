@@ -181,7 +181,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_easyloading/flutter_easyloading.dart';
 import 'package:get/get.dart';
 import 'package:shopify_admin/controllers/add_categotry_image_controller.dart';
-import 'package:shopify_admin/controllers/product_image_controller.dart';
+
 import 'package:shopify_admin/models/category_model.dart';
 import 'package:shopify_admin/service/generate_ids_service.dart';
 import 'package:shopify_admin/utils/constant.dart';

@@ -12,6 +12,7 @@ import 'package:shopify_admin/utils/constant.dart';
 import 'package:shopify_admin/widgets/dropdown_categories_widget.dart';
 import 'package:shopify_admin/service/generate_ids_service.dart';
 
+// ignore: must_be_immutable
 class AddProductScreen extends StatelessWidget {
   AddProductScreen({super.key});
 
@@ -362,3 +363,46 @@ class AddProductScreen extends StatelessWidget {
     );
   }
 }
+
+
+
+
+
+
+     // Stack(
+                  //   children: [
+                  //     CachedNetworkImage(
+                  //       imageUrl: editCategory.categoryImages.value.toString(),
+                  //       fit: BoxFit.contain,
+                  //       height: Get.height / 5.5,
+                  //       width: Get.width / 2,
+                  //       placeholder: (context, url) =>
+                  //           Center(child: CupertinoActivityIndicator()),
+                  //       errorWidget: (context, url, error) => Icon(Icons.error),
+                  //     ),
+                  //     Positioned(
+                  //       right: 10,
+                  //       top: 0,
+                  //       child: InkWell(
+                  //         onTap: () async {
+                  //           EasyLoading.show();
+                  //           await editCategory.deleteImagesFromStorage(
+                  //             editCategory.categoryImages.value.toString(),
+                  //           );
+                  //           await editCategory.deleteImagesFromFirStorage(
+                  //             editCategory.categoryImages.value.toString(),
+                  //             widget.categoriesModel.categoryId,
+                  //           );
+                  //           EasyLoading.dismiss();
+                  //         },
+                  //         child: CircleAvatar(
+                  //           backgroundColor: AppConstant.appScendoryColor,
+                  //           child: Icon(
+                  //             Icons.close,
+                  //             color: AppConstant.appTextColor,
+                  //           ),
+                  //         ),
+                  //       ),
+                  //     ),
+                  //   ],
+                  // )

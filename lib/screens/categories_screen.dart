@@ -5,15 +5,30 @@ import 'package:flutter/material.dart';
 import 'package:flutter_easyloading/flutter_easyloading.dart';
 import 'package:flutter_swipe_action_cell/core/cell.dart';
 import 'package:get/get.dart';
+import 'package:shopify_admin/controllers/edit_category_controller.dart';
 import 'package:shopify_admin/models/category_model.dart';
 import 'package:shopify_admin/screens/add_categories_screen.dart';
+import 'package:shopify_admin/screens/edit_categories_screen.dart';
 import 'package:shopify_admin/utils/constant.dart';
 
-class CategoriesScreen extends StatelessWidget {
+class CategoriesScreen extends StatefulWidget {
   const CategoriesScreen({super.key});
 
   @override
+  State<CategoriesScreen> createState() => _CategoriesScreenState();
+}
+
+class _CategoriesScreenState extends State<CategoriesScreen> {
+@override 
+void initState(){
+  super.initState();
+  EditCategoryController editCategoryController = Get.put(EditCategoryController(categoriesModel: CategoriesModel(categoryId: '', categoryName: '', categoryImg: '', createdAt: Timestamp.now(), updatedAt: Timestamp.now())));
+  
+}
+
+  @override
   Widget build(BuildContext context) {
+    
     return Scaffold(
       appBar: AppBar(
         title: const Text(
@@ -98,17 +113,18 @@ class CategoriesScreen extends StatelessWidget {
                           onConfirm: () async {
                             Get.back(); // Close the dialog
                             EasyLoading.show(status: 'Please wait..');
-
-                            // await deleteImagesFromFirebase(
-                            //   productModel.productImages,
-                            // );
-
-                            // await FirebaseFirestore.instance
-                            //     .collection('products')
-                            //     .doc(productModel.productId)
-                            //     .delete();
-
+                            EditCategoryController editCategoryController = Get.put(EditCategoryController(categoriesModel: categoriesModel));
+                           await editCategoryController.deleteImagesFromStorage(categoriesModel.categoryImg);
+                           await editCategoryController.deleteImagesFromFirStorage(
+                            categoriesModel.categoryImg,
+                            categoriesModel.categoryId);
+                            await FirebaseFirestore.instance
+                                .collection('categories')
+                                .doc(categoriesModel.categoryId)
+                                .delete();
                             EasyLoading.dismiss();
+
+                          
                           },
                           buttonColor: Colors.red,
                           cancelTextColor: Colors.black,
@@ -140,7 +156,9 @@ class CategoriesScreen extends StatelessWidget {
                       title: Text(categoriesModel.categoryName),
                       
                       trailing: GestureDetector(
-                        onTap: () {},
+                        onTap: () {
+                          Get.to(()=>EditCategoriesScreen(categoriesModel:categoriesModel));
+                        },
                         child: const Icon(Icons.edit),
                       ),
                     ),

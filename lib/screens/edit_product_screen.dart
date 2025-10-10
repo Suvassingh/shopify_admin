@@ -1,4 +1,3 @@
-import 'dart:io';
 
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
@@ -6,13 +5,13 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_easyloading/flutter_easyloading.dart';
 import 'package:get/get.dart';
-import 'package:get/get_state_manager/src/simple/get_state.dart';
 import 'package:shopify_admin/controllers/category_dropdown_controller.dart';
 import 'package:shopify_admin/controllers/edit_product_controller.dart';
 import 'package:shopify_admin/controllers/is_sale_controller.dart';
 import 'package:shopify_admin/models/product_model.dart';
 import 'package:shopify_admin/utils/constant.dart';
 
+// ignore: must_be_immutable
 class EditProductScreen extends StatefulWidget {
   ProductModel productModel;
   EditProductScreen({super.key, required this.productModel});
