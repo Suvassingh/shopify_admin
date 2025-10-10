@@ -22,8 +22,6 @@ class _CategoriesScreenState extends State<CategoriesScreen> {
 @override 
 void initState(){
   super.initState();
-  EditCategoryController editCategoryController = Get.put(EditCategoryController(categoriesModel: CategoriesModel(categoryId: '', categoryName: '', categoryImg: '', createdAt: Timestamp.now(), updatedAt: Timestamp.now())));
-  
 }
 
   @override
@@ -115,7 +113,7 @@ void initState(){
                             EasyLoading.show(status: 'Please wait..');
                             EditCategoryController editCategoryController = Get.put(EditCategoryController(categoriesModel: categoriesModel));
                            await editCategoryController.deleteImagesFromStorage(categoriesModel.categoryImg);
-                           await editCategoryController.deleteImagesFromFirStorage(
+                           await editCategoryController.deleteImageFromFireStore(
                             categoriesModel.categoryImg,
                             categoriesModel.categoryId);
                             await FirebaseFirestore.instance
@@ -138,9 +136,7 @@ void initState(){
                     child: ListTile(
                       onTap:
                           ()
-                          // => Get.to(
-                          //   () => ProductDetailsScreen(productModel: productModel),
-                          // ),
+                         
                           {},
                       leading: CircleAvatar(
                         backgroundColor: AppConstant.appScendoryColor,
@@ -157,7 +153,7 @@ void initState(){
                       
                       trailing: GestureDetector(
                         onTap: () {
-                          Get.to(()=>EditCategoriesScreen(categoriesModel:categoriesModel));
+                          Get.to(()=>EditCategoryScreen(categoriesModel:categoriesModel));
                         },
                         child: const Icon(Icons.edit),
                       ),
